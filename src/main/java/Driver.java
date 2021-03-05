@@ -1,5 +1,6 @@
 import org.jsoup.nodes.Element;
 
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 /**
@@ -7,5 +8,11 @@ import java.util.HashMap;
  */
 public class Driver {
     public static void main(String[] args) {
+        try {
+            DatabaseDriver.retrieveCredentials();
+            DatabaseDriver.connect();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
